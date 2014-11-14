@@ -2,61 +2,66 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>{{ page.title }}</title>
+	<title>你好，世界</title>
 	<link rel="icon" href="/wendell.ico"type="image/x-icon"/>
 	<link rel="stylesheet" href="/css/animate-keyframes.css" type="text/css" />
 	<link rel="stylesheet" href="/css/lab-style.css" type="text/css" />
 </head>
 <body>
 	<header class="animate-show">
-		{% include header.html %}
+		<div class="head-img"><i></i></div>
+<h1 class="lab-title">懒蛇的实验室</h1>
 	</header>
 	<section class="section-box">
 		<div class="sidebar fl">
-			<div class="labpic"><img src="/demo/{{ page.pic }}" alt="{{ page.title }}"></div>
-			<div class="labtest">实验环境：{{ page.adaptive }}</div>
+			<div class="labpic"><img src="/demo/20141113/css/demo.jpg" alt="你好，世界"></div>
+			<div class="labtest">实验环境：<i class="pc">Pc</i> <i class="phone">Phone</i></div>
 			<div class="labintro">
 				<label for="">交流：</label>
 				<!-- duoshuo start -->
-				<div class="ds-thread" data-thread-key="{{ page.id }}" data-title="{{ page.title }}" data-url="{{ page.url }}"></div>
+				<div class="ds-thread" data-thread-key="/2014/11/13/helloworld" data-title="你好，世界" data-url="/2014/11/13/helloworld.html"></div>
 				<!-- duoshuo end -->
 			</div>
 			<!-- <div class="share-box"></div> -->
 		</div>
 		<article class="article-cont-box">
-			<h2 class="article-h2">{{ page.title }}</h2>
+			<h2 class="article-h2">你好，世界</h2>
 			<div class="article-mess">
-				<p class="lab-author">作者：<a href="{{ page.blogurl }}" target="_blank">{{ page.author }}</a></p>
-				<p class="lab-by">发布时间：{{ page.date | date_to_string }}</p>
+				<p class="lab-author">作者：<a href="http://blog.webql.info" target="_blank">懒蛇</a></p>
+				<p class="lab-by">发布时间：13 Nov 2014</p>
 				<p>遵循知识共享许可协议 <a style="display:inline-block;vertical-align:middle;" rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" alt="知识共享许可协议" /></a></p>
 			</div>
 			<div class="article-button">
-				<span><a href="/demo/{{ page.demourl }}" target="_blank">开启实验</a></span>
+				<span><a href="/demo/20141113/css/demo.html" target="_blank">开启实验</a></span>
 			</div>
 			<div class="labintro">
 				<label for="">技术要点：</label>
-				{{ content }}
+				<p>这里是一些说明内容这里是一些说明内容这里是一些说明内容这里是一些说明内容这里是一些说明内容这里是一些说明内容这里是一些说明内容这里是一些说明内容这里是一些说明内容这里是一些说明内容这里是一些说明内容这里是一些说明内容这里是一些说明内容这里是一些说明内容这里是一些说明内容这里是一些说明内容这里是一些说明内容这里是一些说明内容这里是一些说明内容</p>
+
 			</div>
 			<div class="labintro">
 				<label for="">运用技术：</label>
-				<!-- <p>{{ page.skill }}</p> -->
+				<!-- <p>css, html, js</p> -->
 				<p>
-					{% for lis in page.skill %}
-						{{ lis }}
-					{% endfor %}
+					
+						css, html, js
+					
 				</p>
 			</div>
 			<div class="labintro">
 				<label for="">标签：</label>
 				<p>
-					{% for item in page.tags %}
-					<a href="/index.html?tag={{item}}">{{ item }}</a>
-					{% endfor %}
+					
 				</p>
 			</div>
 		</article>
 	</section>
-	{% include footer.html %}
+	<footer>
+	
+</footer>
+<script src="/js/prefixfree.min.js" type="text/javascript"></script>
+<script src="/js/zepto.min.js" type="text/javascript"></script>
+<script src="/js/webql.animate.queue.js" type="text/javascript"></script>
 	<!-- duoshuo start -->
 	<script type="text/javascript">
 	var duoshuoQuery = {short_name:"webql"};
