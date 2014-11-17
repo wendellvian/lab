@@ -101,7 +101,7 @@ header{background:#f4f4f4;opacity:0;}
 .article-lis li a{color:#333;}
 .article-lis li a:hover{text-decoration:underline;}
 .article-lis .by{margin:0 5px;border-bottom:1px dotted #ddd;}
-.article-lis .times{margin:0 5px;}
+.article-lis .times,.article-lis .tags{margin:0 5px;}
 .article-lis .adap{height:25px;padding:0 5px;background:#eee;text-align:right;line-height:25px;}
 .pc{position:relative;top:-3px;display:inline-block;width:12px;height:8px;background:#fff;border:2px solid #333;vertical-align:middle;font-size:0;border-radius:2px;}
 .pc:before{content:"";position:absolute;left:5px;bottom:-3px;width:2px;height:2px;background:#333;}

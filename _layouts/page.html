@@ -1,0 +1,54 @@
+---
+layout: default
+headtitle: 懒蛇的实验室
+---
+
+<header class="animate-show">
+	{% include header.html %}
+</header>
+<section class="section-box">
+	<div class="sidebar fl">
+		<div class="labpic"><img src="/demo/{{ page.pic }}" alt="{{ page.title }}"></div>
+		<div class="labtest">实验环境：{{ page.adaptive }}</div>
+		<div class="labintro">
+			<label for="">交流：</label>
+			<!-- duoshuo start -->
+			<div class="ds-thread" data-thread-key="{{ page.id }}" data-title="{{ page.title }}" data-url="{{ page.url }}"></div>
+			<!-- duoshuo end -->
+		</div>
+		<!-- <div class="share-box"></div> -->
+	</div>
+	<article class="article-cont-box">
+		<h2 class="article-h2">{{ page.title }}</h2>
+		<div class="article-mess">
+			<p class="lab-author">作者：<a href="{{ page.blogurl }}" target="_blank">{{ page.author }}</a></p>
+			<p class="lab-by">发布时间：{{ page.date | date: '%Y-%m-%d %H:%M' }}</p>
+			<p>遵循知识共享许可协议 <a style="display:inline-block;vertical-align:middle;" rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" alt="知识共享许可协议" /></a></p>
+		</div>
+		<div class="article-button">
+			<span><a href="/demo/{{ page.demourl }}" target="_blank">开启实验</a></span>
+		</div>
+		<div class="labintro">
+			<label for="">技术要点：</label>
+			{{ content }}
+		</div>
+		<div class="labintro">
+			<label for="">运用技术：</label>
+			<p>{{ page.skill }}</p>
+			<!-- <p>
+				{% for lis in page.skill %}
+					{{ lis }}
+				{% endfor %}
+			</p> -->
+		</div>
+		<div class="labintro">
+			<label for="">标签：</label>
+			<p>
+				{% for tag in page.tags %}
+				<a href="/tags/#{{tag}}">{{ tag }}</a>
+				{% endfor %}
+			</p>
+		</div>
+	</article>
+</section>
+{% include footer.html %}
