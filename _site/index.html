@@ -147,8 +147,7 @@ var duoshuoQuery = {short_name:"snakelab"};
 <!-- duoshuo end -->
 <script src="/js/prefixfree.min.js" type="text/javascript"></script>
 <script src="/js/zepto.min.js" type="text/javascript"></script>
-<script src="/js/webql.animate.queue.js" type="text/javascript"></script>
-<div class="open-door" style="display:none;">
+<div class="open-door">
 	<div class="od-head">
 		<div class="od-lis">
 			<div class="mypic"><i></i></div>
@@ -165,10 +164,13 @@ var duoshuoQuery = {short_name:"snakelab"};
 		</div>
 	</div>
 </div>
+<script src="/js/webql.cookie.js" type="text/javascript"></script>
+<script src="/js/webql.animate.queue.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(function (){
+	var labObj = webql;
 	// 动画元素转场类
-	webql.animateEle = {
+	labObj.animateEle = {
 			"ods":"open-door-show"      // class 类名 open-door-show
 			,"odh":"open-door-hide"     // class 类名 open-door-hide
 			,"anis":"animate-show"      // class 类名 animate-show
@@ -181,7 +183,7 @@ $(function (){
 			,"odts":"odtext-show"       // class 类名 odtext-show
 		};
 	// 动画元素初始化
-	webql.animateLib = {
+	labObj.animateLib = {
 			$header:$("header")
 			,$openDoor:$(".open-door")
 			,$mypic:$(".mypic")
@@ -190,43 +192,50 @@ $(function (){
 			,$odtext:$(".odtext")
 		};
 	// 动画执行方法
-	webql.animateFun = {
+	labObj.animateFun = {
 			openDoorShow:function (){
-				webql.tabClass(webql.animateLib.$openDoor, webql.animateEle.ods);
+				labObj.tabClass(labObj.animateLib.$openDoor, labObj.animateEle.ods);
 			},
 			openDoorHide:function (){
-				webql.tabClass(webql.animateLib.$openDoor, webql.animateEle.odh);
+				labObj.tabClass(labObj.animateLib.$openDoor, labObj.animateEle.odh);
 			},
 			headerFn:function (){
-				webql.tabClass(webql.animateLib.$header, webql.animateEle.anis);
+				labObj.tabClass(labObj.animateLib.$header, labObj.animateEle.anis);
 			},
 			mypicShow:function (){
-				webql.tabClass(webql.animateLib.$mypic, webql.animateEle.mps);
+				labObj.tabClass(labObj.animateLib.$mypic, labObj.animateEle.mps);
 			},
 			chromeShow:function (){
-				webql.tabClass(webql.animateLib.$chrome, webql.animateEle.chrs);
-				webql.tabClass(webql.animateLib.$mypic, webql.animateEle.mpx);
-				webql.tabClass(webql.animateLib.$odtext, webql.animateEle.odts);
+				labObj.tabClass(labObj.animateLib.$chrome, labObj.animateEle.chrs);
+				labObj.tabClass(labObj.animateLib.$mypic, labObj.animateEle.mpx);
+				labObj.tabClass(labObj.animateLib.$odtext, labObj.animateEle.odts);
 			},
 			chromeRotate:function (){
-				webql.tabClass(webql.animateLib.$chromeIco, webql.animateEle.chrr);
+				labObj.tabClass(labObj.animateLib.$chromeIco, labObj.animateEle.chrr);
 			},
 			chromeMove:function (){
-				webql.tabClass(webql.animateLib.$chrome, webql.animateEle.chrm);
-				webql.tabClass(webql.animateLib.$mypic, webql.animateEle.mpy);
+				labObj.tabClass(labObj.animateLib.$chrome, labObj.animateEle.chrm);
+				labObj.tabClass(labObj.animateLib.$mypic, labObj.animateEle.mpy);
 			}
 		};
 	// 动画队列管理
-	webql.moveQueue = [
-			{"fn":webql.animateFun.mypicShow,"time":300},
-			{"fn":webql.animateFun.chromeShow,"time":2000},
-			{"fn":webql.animateFun.chromeRotate,"time":3000},
-			{"fn":webql.animateFun.chromeMove,"time":3500},
-			{"fn":webql.animateFun.openDoorShow,"time":4500},
-			{"fn":webql.animateFun.openDoorHide,"time":4800},
-			{"fn":webql.animateFun.headerFn,"time":4800}
+	labObj.moveQueue = [
+			{"fn":labObj.animateFun.mypicShow,"time":300},
+			{"fn":labObj.animateFun.chromeShow,"time":2000},
+			{"fn":labObj.animateFun.chromeRotate,"time":3000},
+			{"fn":labObj.animateFun.chromeMove,"time":3500},
+			{"fn":labObj.animateFun.openDoorShow,"time":4500},
+			{"fn":labObj.animateFun.openDoorHide,"time":4800},
+			{"fn":labObj.animateFun.headerFn,"time":4800}
 		];
-	webql.animateMove(webql.moveQueue);
+	var classEle = getCookie("open");
+	if(classEle){
+		labObj.animateFun.headerFn();
+		labObj.animateLib.$openDoor.hide();
+	}else{
+		labObj.animateMove(labObj.moveQueue);
+	}
+	setCookie("open", "open-door-show", 5);
 });
 </script>
 
