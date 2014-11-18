@@ -145,3 +145,11 @@ header{background:#f4f4f4;opacity:0;}
 .odtext{display:none;position:absolute;left:0;top:0;width:0;height:200px;overflow:hidden;background:#367fc1;font-weight:700;text-indent:4.5em;font-size:42px;color:#fff;line-height:200px;text-align:center;opacity:0;border-radius:100px;}
 .odtext-show{display:block;}
 
+/* =pagination- */
+.pagination{margin-left:240px;}
+.pages{display:inline-block;margin:0 10px;font-size:20px;font-weight:700;}
+.pages a,.pages span{padding:0 5px;font-weight:500;}
+.previous,.next{position:fixed;top:50%;display:inline-block;width:20px;padding:0 10px;border:2px solid #70a52f;}
+.previous{left:20px;border-top:0;border-right:0;transform:rotate(45deg);}
+.next{right:20px;border-top:0;border-left:0;transform:rotate(-45deg);}
+.disabled{border-color:#333;}
