@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="telephone=no, email=no" />
+	<title>aahtml5拖动条</title>
+	<link rel="stylesheet" href="css/cft-style.css" type="text/css" />
+	<script src="js/prefixfree.min.js" type="text/javascript"></script>
+</head>
+<body>
+	<div class="header-nav" style="visibility:hidden;">
+		<span class="header-txt">交易记录</span>
+		<span class="backlink">QQ钱包</span>
+	</div>
+	<div class="section" style="background:#f4f4f4;">
+
+	</div>
+
+	<div class="ctrl-strip">
+		<div class="first-count">100</div>
+		<div class="last-count">500</div>
+		<div class="strip-bj"></div>
+		<div class="ctrl-btn ctrl-btn-1">
+			<div class="jdcount">
+				<span class="jcz jcz-1">300</span>元
+			</div>
+		</div>
+	</div>
+
+	<div class="ctrl-strip ctrl-strip-2">
+		<div class="first-count">1</div>
+		<div class="last-count">15</div>
+		<div class="strip-bj"></div>
+		<div class="ctrl-btn ctrl-btn-2">
+			<div class="jdcount">
+				<span class="jcz jcz-2">7</span>天
+			</div>
+		</div>
+	</div>
+	<div class="btn-div">
+		<a href="javascript:;">立即申请借款</a>
+	</div>
+
+	<div class="ctrl-html5"><input class="rangeinput" type="range" min="1" max="500" /></div>
+	<script src="js/zepto.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	$(function (){
+		// 获取元素
+		var $setBtn = $(".ctrl-btn");    // 拖动按扭
+		var $wid = $(".ctrl-strip").width();
+		// dragScroll-------------------
+		function dragScroll(obj, widObj, fn){
+			var wid=widObj.width();
+			var bool = false;
+			var startX;
+			var value;
+			obj.bind("touchstart",function (ev){
+				var _event = ev || event;
+				bool = true;
+		        startX = _event.touches[0].clientX - parseInt(obj.position().left);
+			    $(window).bind("touchmove",function (ev){
+					var _event = ev || event;
+					_event.preventDefault();
+					if(bool){
+						var moveX;
+						moveX = _event.touches[0].clientX - startX;
+						// setLeft(moveX, wid);
+						if(moveX < 0){
+							moveX = 0;
+						}else if(moveX > wid){
+							moveX = wid;
+						}
+						fn.call(obj,moveX,moveX/wid);
+					}
+				}).bind("touchend",function (event){
+					$(window).unbind("touchmove");
+					$(window).unbind("touchend");
+				});
+			});
+
+			// 解决红米1s/傲游浏览器4.3.3.2000 build 2896 这坑货浏览器翻转时进度条1px=1像素问题(苹果1px!=1像素)
+			$(window).bind("orientationchange",function(){
+				var timer;
+				var num=0;
+				var check=function(){
+					var width=widObj.width();
+					if(width!=wid){
+						var bili=width/wid;
+					  	var moveX=obj.position().left*bili;
+					  	wid=width;
+					  	fn.call(obj,moveX,moveX/wid);
+					}else{
+					  	num++;
+					  	if(num<8){
+					 		timer=setTimeout(check,50);
+					  	}
+					}
+				};
+				check();
+			});
+			fn.call(obj,0,0);
+		}
+
+		// 加载
+		var init = function (){
+			dragScroll($(".ctrl-btn-1"), $(".ctrl-strip"), function (x,value){
+				$(this).css({left:x});                                                 // 拖动
+				$(this).siblings(".strip-bj").css({width:x});                          // 进度
+				$(".jcz-1").text(100+parseInt(value*(500-100)));                       // 数值
+			});
+			dragScroll($(".ctrl-btn-2"), $(".ctrl-strip"), function (x,value){
+				$(this).css({left:x});                                                 // 拖动
+				$(this).siblings(".strip-bj").css({width:x});                          // 进度
+				$(".jcz-2").text(1+parseInt(value*(15-1)));                            // 数值
+			});
+		}();
+	});
+	</script>
+</body>
+</html>

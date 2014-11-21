@@ -1,0 +1,40 @@
+/* =browsers reset- */
+html{font-family:sans-serif;-webkit-text-size-adjust:100%;font-size:62.5%;}
+body,p,ul,li{margin:0;padding:0;}
+body,button{font-family:Tahoma,"\5FAE\8F6F\96C5\9ED1","\5B8B\4F53",sans-serif;}
+ul{list-style:none;}
+a,a:hover{text-decoration:none;}
+body{background:#fff;}
+/* =@media- */
+@media (min-width: 320px) and (max-width: 640px) {html {font-size: 62.5%;}}
+@media (min-width: 640px) and (max-width: 960px) {html {font-size: 125%;}}
+@media (min-width: 960px) and (max-width: 1280px) {html {font-size: 187.5%;}}
+@media (min-width: 1280px) {html {font-size: 250%;}}
+
+/* =background onload- */
+.section{background:#2f7ab6 url(../images/bj.jpg) no-repeat center center;}
+
+/* =header-nav- */
+.header-nav{position:absolute;top:0;left:0;width:100%;height:4.4rem;background:#f9f9f9;border-bottom:1px solid #b2b2b2;text-align:center;line-height:4.4rem;}
+.header-txt{font-size:1.4rem;}
+.backlink{position:absolute;left:1rem;top:0;padding-left:1.5rem;font-size:1.4rem;color:#0079f0;}
+.backlink:before{content:"";position:absolute;left:0;top:1.6rem;width:1rem;height:1rem;border:3px solid #0079f0;border-top:0;border-right:0;transform:rotate(45deg);}
+
+/* =section- */
+.section{position:relative;height:15.5rem;margin-top:4.5rem;background-size:cover;}
+.section:after{content:"";position:absolute;left:50%;bottom:-1.2rem;width:2rem;height:2rem;margin-left:-1rem;background:#fff;transform:rotate(45deg);}
+/* =进度条- */
+.ctrl-strip{position:relative;width:26rem;height:0.9rem;margin:4rem auto;background:#cbcbcb;border-bottom:1px solid #fff;border-radius:1rem;box-shadow:1px 1px 2px #999 inset;background-clip:padding-box;}
+.first-count,.last-count{position:absolute;left:-1rem;top:-3rem;font-size:1.8rem;color:#999;text-shadow:1px 1px 0 #fff;}
+.last-count{left:auto;right:-1rem;}
+.strip-bj{position:absolute;left:0;top:0;height:0.9rem;background:#3daddf;border-radius:1rem;}
+.ctrl-btn{position:absolute;left:0;top:-.8rem;width:2.2rem;height:2.2rem;margin-left:-1.1rem;border:1px solid #cbcbcb;background-image:linear-gradient(#fff,#ddd);border-radius:50%;background-clip:padding-box;box-shadow:0 -1px 0 #fff inset,0 1px 2px #cbcbcb;cursor:pointer;}
+.jdcount{position:absolute;left:0;top:-2.5rem;width:5.4rem;height:2.4rem;margin-left:-2rem;background:#fff;text-align:center;line-height:2.4rem;white-space:nowrap;color:#808080;font-size:1.8rem;font-weight:500;text-shadow:1px 1px 0 #fff;}
+.jcz-2{margin-left:.5rem;}
+/* =html5滑动条- */
+.ctrl-html5{width:26rem;margin:4rem auto;}
+.rangeinput{width:26rem;height:0.9rem;appearance:none;background:#cbcbcb;border-bottom:1px solid #fff;border-radius:1rem;box-shadow:1px 1px 2px #999 inset;background-clip:padding-box;tap-highlight-color:rgba(0,0,0,0);}
+.rangeinput::-webkit-slider-thumb{appearance: none;width:2.2rem;height:2.2rem;border:1px solid #cbcbcb;background-image:linear-gradient(#fff,#ddd);border-radius: 50%;background-clip:padding-box;box-shadow:0 -1px 0 #fff inset,0 1px 2px #cbcbcb;}
+/* =btn-div- */
+.btn-div a{display:block;width:29rem;height:4.4rem;margin:0 auto;background:#0079ff;font-size:1.8rem;color:#fff;text-align:center;line-height:4.4rem;border-radius:10px;}
+
