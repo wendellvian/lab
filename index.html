@@ -41,18 +41,20 @@ headtitle: 懒蛇的实验室
 				<span class="previous disabled">previous</span>
 			{% endif %}
 			<div class="pages">
-				{% if paginator.page == 1 %}
-				<span class="current-page">1</span>
-				{% else %}
-				<a href="/">1</a>
-				{% endif %}
-				{% for count in (2..paginator.total_pages) %}
-					{% if count == paginator.page %}
-					<span class="current-page">{{ count }}</span>
+				{% if paginator.total_posts >= 9 %}
+					{% if paginator.page == 1 %}
+					<span class="current-page">1</span>
 					{% else %}
-					<a href="/page{{ count }}">{{ count }}</a>
+					<a href="/">1</a>
 					{% endif %}
-				{% endfor %}
+					{% for count in (2..paginator.total_pages) %}
+						{% if count == paginator.page %}
+						<span class="current-page">{{ count }}</span>
+						{% else %}
+						<a href="/page{{ count }}">{{ count }}</a>
+						{% endif %}
+					{% endfor %}
+				{% endif %}
 			</div>
 			{% if paginator.next_page %}
 				<a class="next" href="{{ paginator.next_page_path }}">next</a>

@@ -11,6 +11,7 @@ body{font:12px/1.5 Tahoma,Helvetica,Arial,"\5FAE\8F6F\96C5\9ED1","\5b8b\4f53",sa
 
 /* =background onload- */
 .head-img i,.mypic i{background:url(/images/meimg.jpg) no-repeat;}
+header{background:url(/images/bj.jpg) no-repeat center center;}
 
 /* =keyframes alone- */
 @keyframes shake1{
@@ -64,6 +65,10 @@ body{font:12px/1.5 Tahoma,Helvetica,Arial,"\5FAE\8F6F\96C5\9ED1","\5b8b\4f53",sa
 	50%{transform:translate(-220px, 50px);}
 	100%{transform:translate(-220px, -1000px);}
 }
+@keyframes headmove{
+	from{background-position:center top;}
+	to{background-position:center bottom;}
+}
 /* =进场动画- */
 .animate-show .head-img,.headerbo .head-img{animation:headImg 1s ease forwards;}
 .animate-show .lab-title,.headerbo .lab-title{animation:labTitle 1s ease .2s forwards;}
@@ -76,14 +81,15 @@ body{font:12px/1.5 Tahoma,Helvetica,Arial,"\5FAE\8F6F\96C5\9ED1","\5b8b\4f53",sa
 .chrome-rotate{animation:rotate .5s linear infinite;}
 .chrome-move{animation:chromeMove1 .5s linear forwards;}
 .odtext-show{animation:odTextX .3s ease .5s forwards;}
+header{animation:headmove 50s linear infinite alternate;}
 
 /* =主体- */
-header{background:#f4f4f4;opacity:0;}
+header{background-color:#f4f4f4;opacity:0;}
 .animate-show{opacity:1;}
 .headerbo header{opacity:1;}
 .head-img{width:120px;height:120px;margin:0 auto;transform-origin:center top;border-radius:50%;}
-.head-img i{display:block;width:100px;height:100px;border:10px solid #fff;background-size:100%;border-radius:50%;box-shadow:0 5px 5px #ccc;}
-.lab-title{padding:20px 0;font-size:24px;font-weight:500;color:#ddd;text-align:center;}
+.head-img i{display:block;width:100px;height:100px;border:10px solid #fff;background-size:100%;border-radius:50%;box-shadow:0 2px 5px #333;}
+.lab-title{padding:20px 0;font-size:24px;font-weight:500;color:#333;text-align:center;}
 footer{height:25px;margin:0 auto;background:#fff;border-top:1px dotted #ddd;text-align:center;color:#666;line-height:25px;}
 /* =section-box- */
 .section-box{width:900px;margin:0 auto;padding-bottom:35px;}
@@ -148,7 +154,7 @@ footer{height:25px;margin:0 auto;background:#fff;border-top:1px dotted #ddd;text
 
 /* =pagination- */
 .pagination{margin-left:240px;}
-.pages{display:inline-block;margin:0 10px;font-size:20px;font-weight:700;}
+.pages{display:inline-block;margin:0 10px;font-weight:700;}
 .pages a,.pages span{padding:0 5px;font-weight:500;}
 .previous,.next{position:fixed;top:50%;display:inline-block;width:20px;padding:0 10px;border:2px solid #70a52f;}
 .previous{left:20px;border-top:0;border-right:0;transform:rotate(45deg);}
