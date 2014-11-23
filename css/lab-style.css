@@ -81,7 +81,7 @@ header{background:url(/images/bj.jpg) no-repeat center center;}
 .chrome-rotate{animation:rotate .5s linear infinite;}
 .chrome-move{animation:chromeMove1 .5s linear forwards;}
 .odtext-show{animation:odTextX .3s ease .5s forwards;}
-header{animation:headmove 50s linear infinite alternate;}
+header{animation:headmove 10s linear infinite alternate;}
 
 /* =主体- */
 header{background-color:#f4f4f4;opacity:0;}
