@@ -13,3 +13,11 @@ tags: javascript
 ---
 
 
+{% highlight css linenos %}
+html{font-family:sans-serif;-webkit-text-size-adjust:100%;font-size:62.5%;}
+body,p,ul,li{margin:0;padding:0;}
+body,button{font-family:Tahoma,"\5FAE\8F6F\96C5\9ED1","\5B8B\4F53",sans-serif;}
+ul{list-style:none;}
+a,a:hover{text-decoration:none;}
+body{background:#fff;}
+{% endhighlight %}
