@@ -6,7 +6,7 @@ headtitle: 懒蛇的实验室
 <header>
 	{% include header.html %}
 </header>
-<section class="section-box">
+<section class="section-box" style="margin-top:30px;">
 	<div class="tag-box fl">
 		{% for tag in site.tags %}
 		<a href="/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a>
@@ -33,12 +33,12 @@ headtitle: 懒蛇的实验室
 		<div id="post-pagination" class="pagination">
 			{% if paginator.previous_page %}
 				{% if paginator.previous_page == 1 %}
-				<a class="previous" href="/">previous</a>
+				<a class="previous" href="/">prev</a>
 				{% else %}
-				<a class="previous" href="{{ paginator.previous_page_path }}">previous</a>
+				<a class="previous" href="{{ paginator.previous_page_path }}">prev</a>
 				{% endif %}
 			{% else %}
-				<span class="previous disabled">previous</span>
+				<span class="previous disabled">prev</span>
 			{% endif %}
 			<div class="pages">
 				{% if paginator.total_posts >= 9 %}

@@ -8,6 +8,19 @@ headtitle: 懒蛇的实验室
 </header>
 <section class="section-box clearfix">
 	<div class="crumbs">
+		<div class="prev-next">
+			{% if page.previous %}
+		    <a class="previous" href="{{ page.previous.url }}">prev</a>
+		    {% else %}
+		    <span class="previous disabled">prev</span>
+		    {% endif %}
+
+			{% if page.next %}
+		    <a class="next" href="{{ page.next.url }}">next</a>
+		    {% else %}
+		    <span class="next disabled">next</span>
+		    {% endif %}
+		</div>
 		<a href="/">Go Back</a>
 	</div>
 	<div class="sidebar fl">
