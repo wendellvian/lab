@@ -8,7 +8,7 @@ blogurl: http://blog.webql.info
 adaptive: <i class="phone">Phone</i>
 pic: 20141123/1/demo.jpg
 demourl: 20141123/1/demo.html
-skill: css, html, js
+skill: rem响应式布局，touch事件
 tags: javascript
 ---
 

@@ -11,13 +11,15 @@
 	<link rel="icon" href="/wendell.ico"type="image/x-icon"/>
 	<link rel="stylesheet" href="/css/animate-keyframes.css" type="text/css" />
 	<link rel="stylesheet" href="/css/pygments.css" type="text/css" />
+	<link rel="stylesheet" href="/css/lab-style.css" type="text/css" />
 	<script src="/js/prefixfree.min.js" type="text/javascript"></script>
 	<style>
-	.demohead{position:fixed;left:0;top:0;width:100px;height:100%;background:#f4f4f4;border-right:2px solid #ddd;}
-	.dhimg{width:80px;height:80px;margin:10px auto;background:url(/images/meimg.jpg) no-repeat;background-size:100%;border-radius:50%;box-shadow:0 0 1px #000;}
-	.ht{font-size:14px;text-align:center;color:#333;}
+	.demohead{position:fixed;left:0;top:0;width:100%;height:50px;background:#f4f4f4;border-bottom:2px solid #ddd;text-align:center;}
+	.dhimg{display:inline-block;vertical-align:top;width:32px;height:32px;margin:10px auto;background:#f4f4f4 url(/images/meimg.jpg) no-repeat;background-size:100%;border-radius:50%;box-shadow:0 0 1px #000;}
+	.ht{width:150px;margin:0 auto;background:#ddd;line-height:30px;font-size:14px;text-align:center;color:#333;border-radius:0 0 50% 50%;}
 	.ht a{color:#333;}
-	.demowrap{padding-left:100px;}
+	.labenvir{text-align:center;}
+	.demowrap{padding:130px 0 100px;}
 	</style>
 </head>
 <body>
@@ -26,7 +28,9 @@
 		<p class="ht"><a href="/">{{ page.headtitle }}</a></p>
 	</div>
 	<div class="demowrap">
-	{{ content }}
+		<div class="labenvir">实验环境：{{ page.adaptive }}</div>
+		{{ content }}
 	</div>
+	{% include footer.html %}
 </body>
 </html>
