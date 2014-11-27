@@ -72,7 +72,7 @@ header{background:url(/images/bj.jpg) no-repeat center center;}
 /* =进场动画- */
 .animate-show .head-img,.headerbo .head-img{animation:headImg 1s ease forwards;}
 .animate-show .lab-title,.headerbo .lab-title{animation:labTitle 1s ease .2s forwards;}
-.open-door-show{animation:shake .1s ease 3;}
+.open-door-show{animation:swing .1s ease 3;}
 .open-door-hide{animation:shake1 1s ease forwards;}
 .mypic-show{animation:scale .5s ease;}
 .mypic-X{animation:mypicX .5s ease forwards;}
@@ -126,7 +126,7 @@ footer{height:25px;margin:0 auto;background:#fff;border-top:1px dotted #ddd;text
 .article-mess p{line-height:25px;font-size:14px;}
 .article-button{padding:30px 0;}
 .article-button a{position:relative;display:block;width:150px;height:40px;background:#70a52f;text-align:center;line-height:40px;font-size:18px;color:#fff;border-radius:5px;}
-.article-button a:hover{animation:xshake .3s;}
+.article-button a:hover{animation:shakeX .3s;}
 .labintro{margin-bottom:20px;}
 .labintro label{font-size:16px;font-weight:700;line-height:40px;}
 .labintro p{margin-bottom:10px;font-size:14px;}

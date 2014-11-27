@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<link rel="stylesheet" href="/css/animate-keyframes.css" type="text/css" />
+	<style>
+	.box{position:absolute;left:50%;top:50%;width:100px;height:100px;margin:-50px 0 0 -50px;}
+	.box1{margin-left:-50px;background:#63a69f;}
+	.box2{margin-top:100px;background:#f2e1ad;}
+	.box3{margin-left:100px;background:#f1836a;}
+	.box4{margin-left:-200px;background:#70a52f;}
+	.box5{margin-top:-200px;background:#8b58cb;}
+	</style>
+</head>
+<body>
+	<div class="box box1"></div>
+	<div class="box box2"></div>
+	<div class="box box3"></div>
+	<div class="box box4"></div>
+	<div class="box box5"></div>
+
+	<script src="/js/prefixfree.min.js" type="text/javascript"></script>
+	<script src="/js/zepto.min.js" type="text/javascript"></script>
+	<script src="/js/webql.animate.queue.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		var moveObj = webql;
+		moveObj.moveQueue1 = [
+			{"fn":moveObj.tabClass,"param":[$(".box"),"shakeX"],"time":0}
+		];
+		moveObj.groupQueue = [
+			{"queue":moveObj.moveQueue1,"exetime":0}
+		];
+		moveObj.animateMove(moveObj.groupQueue);
+	</script>
+</body>
+</html>

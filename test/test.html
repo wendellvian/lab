@@ -3,70 +3,66 @@
 <head>
 	<meta charset="UTF-8">
 	<title>test</title>
-	<link rel="stylesheet" href="animate-keyframes.css" type="text/css" />
+	<link rel="stylesheet" href="/css/animate-keyframes.css" type="text/css" />
 	<style>
-	.box,.box1,.box2,.box3,.box4{position:absolute;left:50%;top:50%;width:100px;height:100px;margin:-50px 0 0 -50px;background:red;transition:all 1s;}
-	.box1{margin-top:100px;background:orange;}
-	.box2{margin-left:100px;background:black;}
-	.box3{margin-left:-200px;background:green;}
-	.box4{margin-top:-200px;background:blue;}
+	.box{position:absolute;left:50%;top:50%;width:100px;height:100px;margin:-50px 0 0 -50px;transition:all 1s;}
+	.box1{margin-left:-50px;background:#63a69f;}
+	.box2{margin-top:100px;background:#f2e1ad;}
+	.box3{margin-left:100px;background:#f1836a;}
+	.box4{margin-left:-200px;background:#70a52f;}
+	.box5{margin-top:-200px;background:#8b58cb;}
 	</style>
 </head>
 <body>
-	<div class="box"></div>
-	<div class="box1"></div>
-	<div class="box2"></div>
-	<div class="box3"></div>
-	<div class="box4"></div>
+	<div class="box box1"></div>
+	<div class="box box2"></div>
+	<div class="box box3"></div>
+	<div class="box box4"></div>
+	<div class="box box5"></div>
 
-	<script src="prefixfree.min.js" type="text/javascript"></script>
-	<script src="zepto.min.js" type="text/javascript"></script>
-	<script src="webql.animate.queue.js" type="text/javascript"></script>
+	<script src="/js/prefixfree.min.js" type="text/javascript"></script>
+	<script src="/js/zepto.min.js" type="text/javascript"></script>
+	<script src="/js/webql.animate.queue.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		var moveObj = webql;
 		moveObj.shake = function (obj){
 			obj.css({borderRadius:"50%"});
 		}
 		moveObj.moveQueue = [
-			{"fn":moveObj.shake,"param":[$(".box")],"time":0},
-			{"fn":moveObj.tabClass,"param":[$(".box"),"shakeX"],"time":1000},
-			{"fn":moveObj.tabClass,"param":[$(".box"),"shakeY"],"time":2000},
-			{"fn":moveObj.tabClass,"param":[$(".box"),"swing"],"time":3000}
+			{"fn":moveObj.shake,"param":[$(".box1")],"time":1000},
+			{"fn":moveObj.tabClass,"param":[$(".box1"),"shakeX"],"time":2000},
+			{"fn":moveObj.tabClass,"param":[$(".box1"),"shakeY"],"time":3000},
+			{"fn":moveObj.tabClass,"param":[$(".box1"),"swing"],"time":4000}
 		];
 		moveObj.moveQueue1 = [
-			{"fn":moveObj.shake,"param":[$(".box1")],"time":0},
-			{"fn":moveObj.tabClass,"param":[$(".box1"),"shakeX"],"time":1000},
-			{"fn":moveObj.tabClass,"param":[$(".box1"),"shakeY"],"time":2000},
-			{"fn":moveObj.tabClass,"param":[$(".box1"),"swing"],"time":3000}
+			{"fn":moveObj.shake,"param":[$(".box2")],"time":1000},
+			{"fn":moveObj.tabClass,"param":[$(".box2"),"shakeX"],"time":2000},
+			{"fn":moveObj.tabClass,"param":[$(".box2"),"shakeY"],"time":3000},
+			{"fn":moveObj.tabClass,"param":[$(".box2"),"swing"],"time":4000}
 		];
 		moveObj.moveQueue2 = [
-			{"fn":moveObj.shake,"param":[$(".box2")],"time":0},
-			{"fn":moveObj.tabClass,"param":[$(".box2"),"shakeX"],"time":1000},
-			{"fn":moveObj.tabClass,"param":[$(".box2"),"shakeY"],"time":2000}
+			{"fn":moveObj.shake,"param":[$(".box3")],"time":1000},
+			{"fn":moveObj.tabClass,"param":[$(".box3"),"shakeX"],"time":2000},
+			{"fn":moveObj.tabClass,"param":[$(".box3"),"shakeY"],"time":3000}
 		];
 		moveObj.moveQueue3 = [
-			{"fn":moveObj.shake,"param":[$(".box3")],"time":0},
-			{"fn":moveObj.tabClass,"param":[$(".box3"),"shakeX"],"time":1000},
-			{"fn":moveObj.tabClass,"param":[$(".box3"),"shakeY"],"time":2000}
+			{"fn":moveObj.shake,"param":[$(".box4")],"time":1000},
+			{"fn":moveObj.tabClass,"param":[$(".box4"),"shakeX"],"time":2000},
+			{"fn":moveObj.tabClass,"param":[$(".box4"),"shakeY"],"time":3000}
 		];
 		moveObj.moveQueue4 = [
-			{"fn":moveObj.shake,"param":[$(".box4")],"time":0},
-			{"fn":moveObj.tabClass,"param":[$(".box4"),"shakeX"],"time":1000},
-			{"fn":moveObj.tabClass,"param":[$(".box4"),"shakeY"],"time":2000}
+			{"fn":moveObj.shake,"param":[$(".box5")],"time":1000},
+			{"fn":moveObj.tabClass,"param":[$(".box5"),"shakeX"],"time":2000},
+			{"fn":moveObj.tabClass,"param":[$(".box5"),"shakeY"],"time":3000}
 		];
-		moveObj.lis = [
+		moveObj.groupQueue = [
 			{"queue":moveObj.moveQueue,"exetime":0},
-			{"queue":moveObj.moveQueue1,"exetime":1000},
-			{"queue":moveObj.moveQueue2,"exetime":1000},
-			{"queue":moveObj.moveQueue3,"exetime":1000},
-			{"queue":moveObj.moveQueue4,"exetime":1000}
+			{"queue":moveObj.moveQueue1,"exetime":4000},
+			{"queue":moveObj.moveQueue2,"exetime":4000},
+			{"queue":moveObj.moveQueue3,"exetime":3000},
+			{"queue":moveObj.moveQueue4,"exetime":3000}
 		];
-		moveObj.animateMove(moveObj.lis);
-		// moveObj.animateMove(moveObj.moveQueue);
-		// moveObj.animateMove(moveObj.moveQueue1);
-		// moveObj.animateMove(moveObj.moveQueue2);
-		// moveObj.animateMove(moveObj.moveQueue3);
-		// moveObj.animateMove(moveObj.moveQueue4);
+		moveObj.animateMove(moveObj.groupQueue);
 	</script>
 </body>
 </html>

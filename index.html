@@ -86,19 +86,6 @@ headtitle: 懒蛇的实验室
 <script type="text/javascript">
 $(function (){
 	var labObj = webql;
-	// 动画元素转场类
-	labObj.animateEle = {
-			"ods":"open-door-show"      // class 类名 open-door-show
-			,"odh":"open-door-hide"     // class 类名 open-door-hide
-			,"anis":"animate-show"      // class 类名 animate-show
-			,"mps":"mypic-show"         // class 类名 mypic-show
-			,"mpx":"mypic-X"            // class 类名 mypic-X
-			,"mpy":"mypic-Y"            // class 类名 mypic-Y
-			,"chrs":"chrome-show"       // class 类名 chrome-show
-			,"chrr":"chrome-rotate"     // class 类名 chrome-rotate
-			,"chrm":"chrome-move"       // class 类名 chrome-move
-			,"odts":"odtext-show"       // class 类名 odtext-show
-		};
 	// 动画元素初始化
 	labObj.animateLib = {
 			$header:$("header")
@@ -108,49 +95,28 @@ $(function (){
 			,$chromeIco:$(".chrome-ico")
 			,$odtext:$(".odtext")
 		};
-	// 动画执行方法
-	labObj.animateFun = {
-			openDoorShow:function (){
-				labObj.tabClass(labObj.animateLib.$openDoor, labObj.animateEle.ods);
-			},
-			openDoorHide:function (){
-				labObj.tabClass(labObj.animateLib.$openDoor, labObj.animateEle.odh);
-			},
-			headerFn:function (){
-				labObj.tabClass(labObj.animateLib.$header, labObj.animateEle.anis);
-			},
-			mypicShow:function (){
-				labObj.tabClass(labObj.animateLib.$mypic, labObj.animateEle.mps);
-			},
-			chromeShow:function (){
-				labObj.tabClass(labObj.animateLib.$chrome, labObj.animateEle.chrs);
-				labObj.tabClass(labObj.animateLib.$mypic, labObj.animateEle.mpx);
-				labObj.tabClass(labObj.animateLib.$odtext, labObj.animateEle.odts);
-			},
-			chromeRotate:function (){
-				labObj.tabClass(labObj.animateLib.$chromeIco, labObj.animateEle.chrr);
-			},
-			chromeMove:function (){
-				labObj.tabClass(labObj.animateLib.$chrome, labObj.animateEle.chrm);
-				labObj.tabClass(labObj.animateLib.$mypic, labObj.animateEle.mpy);
-			}
-		};
 	// 动画队列管理
 	labObj.moveQueue = [
-			{"fn":labObj.animateFun.mypicShow,"time":300},
-			{"fn":labObj.animateFun.chromeShow,"time":2000},
-			{"fn":labObj.animateFun.chromeRotate,"time":3000},
-			{"fn":labObj.animateFun.chromeMove,"time":3500},
-			{"fn":labObj.animateFun.openDoorShow,"time":4500},
-			{"fn":labObj.animateFun.openDoorHide,"time":4800},
-			{"fn":labObj.animateFun.headerFn,"time":4800}
+			{"fn":labObj.tabClass,"param":[labObj.animateLib.$mypic,"mypic-show"],"time":300},
+			{"fn":labObj.tabClass,"param":[labObj.animateLib.$chrome,"chrome-show"],"time":2000},
+			{"fn":labObj.tabClass,"param":[labObj.animateLib.$mypic,"mypic-X"],"time":2000},
+			{"fn":labObj.tabClass,"param":[labObj.animateLib.$odtext,"odtext-show"],"time":2000},
+			{"fn":labObj.tabClass,"param":[labObj.animateLib.$chromeIco,"chrome-rotate"],"time":3000},
+			{"fn":labObj.tabClass,"param":[labObj.animateLib.$chrome,"chrome-move"],"time":3500},
+			{"fn":labObj.tabClass,"param":[labObj.animateLib.$mypic,"mypic-Y"],"time":3500},
+			{"fn":labObj.tabClass,"param":[labObj.animateLib.$openDoor,"open-door-show"],"time":4500},
+			{"fn":labObj.tabClass,"param":[labObj.animateLib.$openDoor,"open-door-hide"],"time":4800},
+			{"fn":labObj.tabClass,"param":[labObj.animateLib.$header,"animate-show"],"time":4800}
+		];
+	labObj.groupQueue = [
+			{"queue":labObj.moveQueue,"exetime":0}
 		];
 	var classEle = getCookie("open");
 	if(classEle){
-		labObj.animateFun.headerFn();
+		labObj.tabClass(labObj.animateLib.$header, "animate-show");
 		labObj.animateLib.$openDoor.hide();
 	}else{
-		labObj.animateMove(labObj.moveQueue);
+		labObj.animateMove(labObj.groupQueue);
 	}
 	setCookie("open", "open-door-show", 5);
 });
