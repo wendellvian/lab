@@ -1,0 +1,38 @@
+%public{
+	display:inline-block;
+	vertical-align:middle;
+	background-repeat:no-repeat;
+}
+// array
+$iclis:i_7xc, i_pl5, i_pl3, i_dlt, i_15x5, i_fc3d, i_ssq, i_7lc, i_df6j1, i_bjdc, i_sfc, i_14csfc, i_rx9c, i_jczq, i_jclq, i_xssc, i_ssc, i_xk3, i_11ydj, i_gd11x5, i_y11x5, i_11x5, i_w11x5, i_qyc, i_xysc, i_sjbjc, i_ogjc, i_dcsf, i_klpk;
+@mixin icons($size, $ele){
+	@if $ele == q{
+		.i#{$size}_#{$size}:before,.i#{$size}_#{$size}:after{content:''}
+	}
+	.i#{$size}_#{$size}{
+		@extend %public;
+		width:$size + px;
+		height:$size + px;
+		background-image:url(i#{$size}-#{$size}.png);
+	}
+	
+	// 有效的，在找寻更好的方法
+	// $iclis:(i_7xc, -0), (i_pl5, 1), (i_pl3, 2), (i_dlt, 3), (i_15x5, 4), (i_fc3d, 5), (i_ssq, 6), (i_7lc, 7), (i_df6j1, 8), (i_bjdc, 9), (i_sfc, 10), (i_14csfc, 11), (i_rx9c, 12), (i_jczq, 13), (i_jclq, 14), (i_xssc, 15), (i_ssc, 16), (i_xk3, 17), (i_11ydj, 18), (i_gd11x5, 19), (i_y11x5, 20), (i_11x5, 21), (i_w11x5, 22), (i_qyc, 23), (i_xysc, 24), (i_sjbjc, 25), (i_ogjc, 26), (i_dcsf, 27), (i_klpk, 28);
+	// @each $name, $index in $iclis {
+	    // #{$ele}.#{$name}{background-position:0 (#{$size * -$index}) + px;}
+	// }
+	@each $name in $iclis {
+		$index:index($iclis, $name)-1;
+		@if $index == 0{
+			#{$ele}.#{$name}{background-position:0 0;}
+		}@else if $index >= index($iclis, i_rx9c)-1{
+			$index:index($iclis, $name)-2;
+			#{$ele}.#{$name}{background-position:0 -#{$size * $index}px;}
+		}@else{
+			#{$ele}.#{$name}{background-position:0 -#{$size * $index}px;}
+		}
+	}
+}
+@include icons(24, q);
+
+
