@@ -1,7 +1,7 @@
 ---
 layout: page
 headtitle: 懒蛇的实验室
-title: 转换动画
+title: 队列动画
 date: 2014-12-01 15:43
 author: 懒蛇
 blogurl: http://blog.webql.info
