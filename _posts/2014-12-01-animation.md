@@ -1,7 +1,7 @@
 ---
 layout: page
 headtitle: 懒蛇的实验室
-title: 动画
+title: 转换动画
 date: 2014-12-01 15:43
 author: 懒蛇
 blogurl: http://blog.webql.info
@@ -13,7 +13,7 @@ tags: css3
 ---
 
 
-通过时间顺序添加类或方法来达到动画的切换。
+通过时间顺序添加类或方法来达到动画的转换。
 
 理解css3的动画均为单一动画，即为同一容器只能产生一个动画。
 
