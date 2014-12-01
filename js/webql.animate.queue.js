@@ -1,3 +1,9 @@
+/*
+ * animateQueue v1.0
+ * Copyright (c) 2014 Wendell  http://blog.webql.info/
+ * http://lab.webql.info
+*/
+
 window.webql = window.webql || {};
 webql.animateMove = function (arr){
 		var requestAnimationFrame = window.requestAnimationFrame
