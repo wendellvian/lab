@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="telephone=no, email=no" />
+	<title>队列动画</title>
+	<link rel="icon" href="/wendell.ico"type="image/x-icon"/>
+	<link rel="stylesheet" href="/css/animate-keyframes.css" type="text/css" />
+	<link rel="stylesheet" href="/css/pygments.css" type="text/css" />
+	<link rel="stylesheet" href="/css/lab-style.css" type="text/css" />
+	<script src="/js/prefixfree.min.js" type="text/javascript"></script>
+	<style>
+	.demoheadbo{position:fixed;left:0;top:0;z-index:1;width:100%;height:100px;background:#fff;}
+	.demohead{width:100%;height:50px;background:#f4f4f4;border-bottom:2px solid #ddd;text-align:center;}
+	.dhimg{display:inline-block;vertical-align:top;width:32px;height:32px;margin:10px auto;background:#f4f4f4 url(/images/meimg.jpg) no-repeat;background-size:100%;border-radius:50%;box-shadow:0 0 1px #000;}
+	.ht{width:150px;margin:0 auto;background:#ddd;line-height:30px;font-size:14px;text-align:center;color:#333;border-radius:0 0 50% 50%;}
+	.ht a{color:#333;}
+	.labenvir{text-align:center;}
+	.envirtit{font-size:24px;margin-bottom:10px;}
+	.demowrap{min-height:600px;padding:130px 0 100px;}
+	</style>
+</head>
+<body>
+	<div class="demoheadbo">
+		<div class="demohead">
+			<div class="dhimg"></div>
+			<p class="ht"><a href="/">懒蛇的实验室</a></p>
+		</div>
+	</div>
+	<div class="demowrap">
+		<div class="labenvir">
+			<p class="envirtit">实验环境</p>
+			<p><i class="pc">Pc</i> <i class="phone">Phone</i></p>
+		</div>
+		<style>
+.wrap{position:absolute;left:50%;top:50%;width:50px;height:50px;margin:-25px 0 0 -25px;opacity:0;}
+.box{position:absolute;width:50px;height:50px;transition:all 1s;}
+.box1{left:0;top:0;background:#63a69f;}
+.box2{left:0;top:100px;background:#f2e1ad;transform-origin:center -75px;}
+.box3{left:100px;top:0;background:#f1836a;transform-origin:-75px center;}
+.box4{left:-100px;top:0;background:#70a52f;transform-origin:125px center;}
+.box5{left:0;top:-100px;background:#8b58cb;transform-origin:center 125px;}
+
+.wrap1 .box2{opacity:0;top:200px;transform-origin:center -175px;}
+.wrap1 .box3{opacity:0;left:200px;transform-origin:-175px center;}
+.wrap1 .box4{opacity:0;left:-200px;transform-origin:225px center;}
+.wrap1 .box5{opacity:0;top:-200px;transform-origin:center 225px;}
+</style>
+
+<div class="wrap">
+	<div class="box box1"></div>
+	<div class="box box2"></div>
+	<div class="box box3"></div>
+	<div class="box box4"></div>
+	<div class="box box5"></div>
+</div>
+
+<script src="/js/zepto.min.js" type="text/javascript"></script>
+<script src="/js/webql.animate.queue.js" type="text/javascript"></script>
+<script type="text/javascript">
+	var moveObj = webql;
+	moveObj.shake = function (obj){
+		obj.css({borderRadius:"50%"});
+	}
+	moveObj.opacity = [
+		{"fn":moveObj.tabClass,"param":[$(".wrap"),"opacity"],"time":0}
+	];
+	moveObj.moveQueue = [
+		{"fn":moveObj.shake,"param":[$(".box1")],"time":1000},
+		{"fn":moveObj.tabClass,"param":[$(".box1"),"shakeX"],"time":2000},
+		{"fn":moveObj.tabClass,"param":[$(".box1"),"shakeY"],"time":3000},
+		{"fn":moveObj.tabClass,"param":[$(".box1"),"swing"],"time":4000}
+	];
+	moveObj.moveQueue1 = [
+		{"fn":moveObj.shake,"param":[$(".box2")],"time":1000},
+		{"fn":moveObj.tabClass,"param":[$(".box2"),"shakeX"],"time":2000},
+		{"fn":moveObj.tabClass,"param":[$(".box2"),"shakeY"],"time":3000},
+		{"fn":moveObj.tabClass,"param":[$(".box2"),"swing"],"time":4000},
+		{"fn":moveObj.tabClass,"param":[$(".box2"),"rotate"],"time":5000}
+	];
+	moveObj.moveQueue2 = [
+		{"fn":moveObj.shake,"param":[$(".box3")],"time":1000},
+		{"fn":moveObj.tabClass,"param":[$(".box3"),"shakeX"],"time":2000},
+		{"fn":moveObj.tabClass,"param":[$(".box3"),"shakeY"],"time":3000},
+		{"fn":moveObj.tabClass,"param":[$(".box3"),"rotate"],"time":4000}
+	];
+	moveObj.moveQueue3 = [
+		{"fn":moveObj.shake,"param":[$(".box4")],"time":1000},
+		{"fn":moveObj.tabClass,"param":[$(".box4"),"shakeX"],"time":2000},
+		{"fn":moveObj.tabClass,"param":[$(".box4"),"shakeY"],"time":3000},
+		{"fn":moveObj.tabClass,"param":[$(".box4"),"rotate"],"time":4000}
+	];
+	moveObj.moveQueue4 = [
+		{"fn":moveObj.shake,"param":[$(".box5")],"time":1000},
+		{"fn":moveObj.tabClass,"param":[$(".box5"),"shakeX"],"time":2000},
+		{"fn":moveObj.tabClass,"param":[$(".box5"),"shakeY"],"time":3000},
+		{"fn":moveObj.tabClass,"param":[$(".box5"),"rotate"],"time":4000}
+	];
+	moveObj.moveQueue5 = [
+		{"fn":moveObj.tabClass,"param":[$(".wrap"),"wrap1"],"time":1000}
+	];
+	moveObj.groupQueue = [
+		{"queue":moveObj.opacity,"exetime":1000},
+		{"queue":moveObj.moveQueue,"exetime":1000},
+		{"queue":moveObj.moveQueue1,"exetime":4000},
+		{"queue":moveObj.moveQueue2,"exetime":5000},
+		{"queue":moveObj.moveQueue3,"exetime":4000},
+		{"queue":moveObj.moveQueue4,"exetime":4000},
+		{"queue":moveObj.moveQueue5,"exetime":5000}
+	];
+	moveObj.animateMove(moveObj.groupQueue);
+</script>
+	</div>
+	<footer>
+	&copy; <a href="/" target="_blank">懒蛇的实验室</a> All Rights Reserved | Powered by <a href="http://jekyllcn.com/" target="_blank">Jekyll</a> | Themes by <a href="http://blog.webql.info" target="_blank">懒蛇</a>
+</footer>
+<!-- duoshuo start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"snakelab"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- duoshuo end -->
+<script src="/js/prefixfree.min.js" type="text/javascript"></script>
+<script src="/js/zepto.min.js" type="text/javascript"></script>
+<script src="/js/webql.cookie.js" type="text/javascript"></script>
+</body>
+</html>

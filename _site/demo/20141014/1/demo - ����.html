@@ -7,7 +7,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<meta name="format-detection" content="telephone=no, email=no" />
-	<title>内容两端对齐</title>
+	<title>折角</title>
 	<link rel="icon" href="/wendell.ico"type="image/x-icon"/>
 	<link rel="stylesheet" href="/css/animate-keyframes.css" type="text/css" />
 	<link rel="stylesheet" href="/css/pygments.css" type="text/css" />
@@ -37,24 +37,41 @@
 			<p><i class="pc">Pc</i> <i class="phone">Phone</i></p>
 		</div>
 		<style type="text/css">
-.justify{
-	margin:20px auto;
-    -webkit-text-align-last: justify;
-    -moz-text-align-last: justify;
-    text-align-last: justify;/* IE6+ */
-    text-align: justify;
+.box{
+  position:relative;
+  width:200px;
+  height:200px;
+  margin:50px auto;
+  background:orange;
+  border:1px solid darkred;
+  box-shadow:1px 1px 0 #999;
 }
-.justify:after{content:"";display:inline-block;width:100%;}
+.box:before{
+  position:absolute;
+  right:-2px;
+  bottom:-2px;
+  content:"";
+  width:0;
+  height:0;
+  border:12px solid #fff;
+  border-color:darkorange transparent transparent darkorange;
+  box-shadow:-1px -1px 0px darkred;
+  border-radius:2px;
+}
+.box:after{
+  position:absolute;
+  right:-17px;
+  bottom:-17px;
+  content:"";
+  width:32px;
+  height:32px;
+  border-left:1px solid darkred;
+  background:#fff;
+  transform:rotate(45deg);
+  box-shadow:1px 0 0 #999 inset;
+}
 </style>
-<div class="justify" style="width:300px;font-size:30px;margin-top:150px;">
-	<span>标题</span>
-	<a href="javascript:;">更多&gt;&gt;</a>
-</div>
-<div class="justify" style="width:300px;">
-	<span>本场比利亚雷亚尔投注受热。</span>
-	<a href="javascript:;">更多</a>
-</div>
-
+<div class="box"></div>
 	</div>
 	<footer>
 	&copy; <a href="/" target="_blank">懒蛇的实验室</a> All Rights Reserved | Powered by <a href="http://jekyllcn.com/" target="_blank">Jekyll</a> | Themes by <a href="http://blog.webql.info" target="_blank">懒蛇</a>

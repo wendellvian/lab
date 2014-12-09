@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文本描边</title>
+	<link rel="stylesheet" href="/css/base.css" type="text/css" />
+	<script src="/js/prefixfree.min.js" type="text/javascript"></script>
+	<style type="text/css">
+	/* =兼容IE10以下- */
+	.textshadow{
+		*position:absolute;left:50%;*margin-left:-2.5em;line-height:300px;margin:50px auto;font-size:30px;text-align:center;color:#fff;letter-spacing:10px;
+		filter:Dropshadow(offx=2,offy=0,color=#333333)
+		Dropshadow(offx=0,offy=2,color=#333333)
+		Dropshadow(offx=0,offy=-2,color=#333333)
+		Dropshadow(offx=-2,offy=0,color=#333333);
+	}
+	/* =现代浏览器- */
+	.textshadow{
+		text-shadow:2px 0 .1px #333,0 2px .1px #333,0 -2px .1px #333,-2px 0 .1px #333,
+		2px 2px .1px #333,-2px -2px .1px #333,2px -2px .1px #333,0 0 10px #000
+	}
+	</style>
+</head>
+<body>
+<div class="textshadow">懒蛇的实验室</div>
+	
+</body>
+</html>
+
+
+

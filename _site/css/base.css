@@ -1,0 +1,10 @@
+/* =base- */
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;}
+ul{list-style:none;}
+a,a:hover{color:#70a52f;text-decoration:none;}
+body{font:12px/1.5 Tahoma,Helvetica,Arial,"\5FAE\8F6F\96C5\9ED1","\5b8b\4f53",sans-serif;}
+.clearfix:after{clear:both;content:".";display:block;height:0;visibility:hidden}
+.clearfix{*zoom:1}
+.fl,.fr{display:inline;}
+.fl{float:left;}
+.fr{float:right;}

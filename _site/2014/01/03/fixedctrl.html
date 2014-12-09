@@ -7,7 +7,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<meta name="format-detection" content="telephone=no, email=no" />
-	<title>内容两端对齐</title>
+	<title>固定定位的控制</title>
 	<link rel="icon" href="/wendell.ico"type="image/x-icon"/>
 	<link rel="stylesheet" href="/css/animate-keyframes.css" type="text/css" />
 	<link rel="stylesheet" href="/css/pygments.css" type="text/css" />
@@ -22,49 +22,51 @@
 	<div class="crumbs">
 		<div class="prev-next">
 			
-		    <a class="previous" href="/2014/01/03/fixedctrl.html">prev</a>
+		    <span class="previous disabled">prev</span>
 		    
 
 			
-		    <a class="next" href="/2014/09/19/layout.html">next</a>
+		    <a class="next" href="/2014/08/21/justify.html">next</a>
 		    
 		</div>
 		<a href="/">Go Back</a>
 	</div>
 	<div class="sidebar fl">
-		<div class="labpic"><img src="/demo/20140821/1/demo.jpg" alt="内容两端对齐"></div>
-		<div class="labtest">实验环境：<i class="pc">Pc</i> <i class="phone">Phone</i></div>
+		<div class="labpic"><img src="/demo/20140103/1/demo.jpg" alt="固定定位的控制"></div>
+		<div class="labtest">实验环境：<i class="pc">Pc</i></div>
 		<div class="labintro">
 			<label for="">交流：</label>
 			<!-- duoshuo start -->
-			<div class="ds-thread" data-thread-key="/2014/08/21/justify" data-title="内容两端对齐" data-url="/2014/08/21/justify.html"></div>
+			<div class="ds-thread" data-thread-key="/2014/01/03/fixedctrl" data-title="固定定位的控制" data-url="/2014/01/03/fixedctrl.html"></div>
 			<!-- duoshuo end -->
 		</div>
 		<!-- <div class="share-box"></div> -->
 	</div>
 	<article class="article-cont-box">
-		<h2 class="article-h2">内容两端对齐</h2>
+		<h2 class="article-h2">固定定位的控制</h2>
 		<div class="article-mess">
 			<p class="lab-author">作者：<a href="http://blog.webql.info" target="_blank">懒蛇</a></p>
-			<p class="lab-by">发布时间：2014-08-21 17:04</p>
+			<p class="lab-by">发布时间：2014-01-03 10:02</p>
 			<p>遵循知识共享许可协议 <a style="display:inline-block;vertical-align:middle;" rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" alt="知识共享许可协议" /></a></p>
 		</div>
 		<div class="article-button">
-			<span><a href="/demo/20140821/1/demo.html" target="_blank">开启实验</a></span>
+			<span><a href="/demo/20140103/1/demo.html" target="_blank">开启实验</a></span>
 		</div>
 		<div class="labintro">
 			<label for="">技术要点：</label>
-			<p>该css3属性仅firefox支持的比较完美，拿来做标题是相当靠谱的，但是这有前提：需要内容间存在间隔，所以在结构上这个不能压缩。</p>
+			<p>监听事件，判断鼠标滚轮的方向，改变top值达到效果</p>
 
-<p>兼容性上除firefox支持完美外，其他家浏览器需要通过伪类来协助实现。</p>
+<p>兼容处理：<br />
+FF: e.detail <br />
+Other: e.wheelDelta</p>
 
 		</div>
 		<div class="labintro">
 			<label for="">运用技术：</label>
-			<p>text-align:justify; | :after</p>
+			<p>fixed</p>
 			<!-- <p>
 				
-					text-align:justify; | :after
+					fixed
 				
 			</p> -->
 		</div>
@@ -72,7 +74,9 @@
 			<label for="">标签：</label>
 			<p>
 				
-				<a href="/tags/#css3">css3</a>
+				<a href="/tags/#css">css</a>
+				
+				<a href="/tags/#javascript">javascript</a>
 				
 			</p>
 		</div>

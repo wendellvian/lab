@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>水波加载动画</title>
+    <link rel="stylesheet" href="/css/base.css" type="text/css" />
+    <script src="/js/prefixfree.min.js" type="text/javascript"></script>
+    <style type="text/css">
+        .box{position:relative;width:130px;height:130px;overflow:hidden;margin:100px auto;background:#fff;border:5px solid #62aa9f;border-radius:50%;}
+        .box-move-y{position:absolute;left:0;bottom:0;width:165px;height:100px;background:currentColor;color:#b1d6cf;}
+        .box-move-x{position:absolute;left:0;bottom:0;}
+        .box-1,.box-3{left:0;}
+        .box-2,.box-4{left:165px;}
+        .box-3 .box-move-y{color:#62aa9f;}
+        .box-4 .box-move-y{color:#62aa9f;}
+        /* =修复ios下不继承的问题 begin- */
+        .box-3 .wave-1{color:#62aa9f;}
+        .box-4 .wave-1{color:#62aa9f;}
+        .box-3 .wave-1:after{color:#62aa9f;}
+        .box-4 .wave-1:after{color:#62aa9f;}
+        /* =end- */
+        .wave-1{position:absolute;left:-8px;top:-14px;width:100px;height:30px;background:currentColor;border-radius:50%;}
+        .wave-1:after{content:"";position:absolute;left:78px;top:-22px;width:100px;height:30px;border:5px solid currentColor;border-color:transparent transparent currentColor transparent;border-radius:50%;}
+
+        @keyframes move1{
+            0%{left:0px;}
+            100%{left:-165px;}
+        }
+        @keyframes move2{
+            0%{left:165px;}
+            100%{left:0;}
+        }
+        @keyframes height{
+            0%{height:0;}
+            100%{height:140px;}
+        }
+        .box-1{animation:move1 2s linear infinite reverse;}
+        .box-2{animation:move2 2s linear infinite reverse;}
+        .box-3{animation:move1 1s linear infinite;}
+        .box-4{animation:move2 1s linear infinite;}
+        .box-move-y{animation:height 30s linear infinite;}
+    </style>
+</head>
+<body>
+    
+<div class="box">
+    <div class="box-move-x box-1">
+        <div class="box-move-y">
+            <div class="wave-1"></div>
+        </div>
+    </div>
+    <div class="box-move-x box-2">
+        <div class="box-move-y">
+            <div class="wave-1"></div>
+        </div>
+    </div>
+    <div class="box-move-x box-3">
+        <div class="box-move-y">
+            <div class="wave-1"></div>
+        </div>
+    </div>
+    <div class="box-move-x box-4">
+        <div class="box-move-y">
+            <div class="wave-1"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

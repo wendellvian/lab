@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>内容两端对齐</title>
+	<link rel="stylesheet" href="/css/base.css" type="text/css" />
+	<script src="/js/prefixfree.min.js" type="text/javascript"></script>
+	<style type="text/css">
+	.justify{
+		margin:20px auto;
+	    -webkit-text-align-last: justify;
+	    -moz-text-align-last: justify;
+	    text-align-last: justify;/* IE6+ */
+	    text-align: justify;
+	}
+	.justify:after{content:"";display:inline-block;width:100%;}
+	</style>
+</head>
+<body>
+	
+<div class="justify" style="width:300px;font-size:30px;margin-top:150px;">
+	<span>标题</span>
+	<a href="javascript:;">更多&gt;&gt;</a>
+</div>
+<div class="justify" style="width:300px;">
+	<span>本场比利亚雷亚尔投注受热。</span>
+	<a href="javascript:;">更多</a>
+</div>
+</body>
+</html>

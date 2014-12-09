@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="telephone=no, email=no" />
+	<title>拖动条</title>
+	<link rel="icon" href="/wendell.ico"type="image/x-icon"/>
+	<link rel="stylesheet" href="/css/animate-keyframes.css" type="text/css" />
+	<link rel="stylesheet" href="/css/pygments.css" type="text/css" />
+	<link rel="stylesheet" href="/css/lab-style.css" type="text/css" />
+	<script src="/js/prefixfree.min.js" type="text/javascript"></script>
+	<style>
+	.demoheadbo{position:fixed;left:0;top:0;z-index:1;width:100%;height:100px;background:#fff;}
+	.demohead{width:100%;height:50px;background:#f4f4f4;border-bottom:2px solid #ddd;text-align:center;}
+	.dhimg{display:inline-block;vertical-align:top;width:32px;height:32px;margin:10px auto;background:#f4f4f4 url(/images/meimg.jpg) no-repeat;background-size:100%;border-radius:50%;box-shadow:0 0 1px #000;}
+	.ht{width:150px;margin:0 auto;background:#ddd;line-height:30px;font-size:14px;text-align:center;color:#333;border-radius:0 0 50% 50%;}
+	.ht a{color:#333;}
+	.labenvir{text-align:center;}
+	.envirtit{font-size:24px;margin-bottom:10px;}
+	.demowrap{min-height:600px;padding:130px 0 100px;}
+	</style>
+</head>
+<body>
+	<div class="demoheadbo">
+		<div class="demohead">
+			<div class="dhimg"></div>
+			<p class="ht"><a href="/">懒蛇的实验室</a></p>
+		</div>
+	</div>
+	<div class="demowrap">
+		<div class="labenvir">
+			<p class="envirtit">实验环境</p>
+			<p><i class="phone">Phone</i></p>
+		</div>
+		<style type="text/css">
+/* =browsers reset- */
+html{font-family:sans-serif;-webkit-text-size-adjust:100%;font-size:62.5%;}
+body,p,ul,li{margin:0;padding:0;}
+body,button{font-family:Tahoma,"\5FAE\8F6F\96C5\9ED1","\5B8B\4F53",sans-serif;}
+ul{list-style:none;}
+a,a:hover{text-decoration:none;}
+body{background:#fff;}
+/* =@media- */
+@media (min-width: 320px) and (max-width: 640px) {html {font-size: 62.5%;}}
+@media (min-width: 640px) and (max-width: 960px) {html {font-size: 125%;}}
+@media (min-width: 960px) and (max-width: 1280px) {html {font-size: 187.5%;}}
+@media (min-width: 1280px) {html {font-size: 250%;}}
+
+.ctrl-strip{position:relative;width:20rem;height:0.9rem;margin:5rem auto;background:#cbcbcb;border-bottom:1px solid #fff;border-radius:1rem;box-shadow:1px 1px 2px #999 inset;background-clip:padding-box;}
+.strip-bj{position:absolute;left:0;top:0;height:0.9rem;background:orange;border-radius:1rem;}
+.ctrl-btn{position:absolute;left:0;top:-.8rem;width:2.2rem;height:2.2rem;margin-left:-1.1rem;border:1px solid #666;background-image:linear-gradient(#fff,#ddd);border-radius:.5rem;background-clip:padding-box;box-shadow:0 -1px 0 #fff inset,0 1px 2px #cbcbcb;cursor:pointer;}
+.jdcount{position:absolute;left:0;top:-2.5rem;width:5.4rem;height:2.4rem;margin-left:-2rem;background:#fff;text-align:center;line-height:2.4rem;white-space:nowrap;color:#808080;font-size:1.8rem;font-weight:500;text-shadow:1px 1px 0 #fff;}
+.jcz-2{margin-left:.5rem;}	
+</style>
+<div class="ctrl-strip">
+	<div class="strip-bj" style="background:#63a69f"></div>
+	<div class="ctrl-btn ctrl-btn-1">
+		<div class="jdcount">
+			<span class="jcz jcz-1">100</span>
+		</div>
+	</div>
+</div>
+<div class="ctrl-strip">
+	<div class="strip-bj" style="background:#f2e1ad"></div>
+	<div class="ctrl-btn ctrl-btn-2">
+		<div class="jdcount">
+			<span class="jcz jcz-2">100</span>
+		</div>
+	</div>
+</div>
+<div class="ctrl-strip">
+	<div class="strip-bj" style="background:#f1836a"></div>
+	<div class="ctrl-btn ctrl-btn-3">
+		<div class="jdcount">
+			<span class="jcz jcz-3">100</span>
+		</div>
+	</div>
+</div>
+
+<script src="/js/zepto.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function (){
+	// 监测是否为FF浏览器，解决FF下无缩放问题
+	var isFirefox=navigator.userAgent.indexOf("Firefox")!=-1;
+	if(isFirefox){
+		$("head").append('<meta name="viewport" content="width=device-width, user-scalable=no" />');
+	}
+
+	// 获取元素
+	var $setBtn = $(".ctrl-btn");    // 拖动按扭
+	// dragScroll-------------------
+	function dragScroll(obj, widObj, fn){
+		var wid=widObj.width();
+		var bool = false;
+		var startX;
+		var value;
+		var fixFleg=false;
+		obj.bind("touchstart",function (ev){
+			var _event = ev || event;
+			bool = true;
+	        startX = _event.touches[0].clientX - parseInt(obj.position().left);
+		    $(window).bind("touchmove",function (ev){
+				var _event = ev || event;
+				_event.preventDefault();
+				if(bool){
+					var moveX;
+					moveX = _event.touches[0].clientX - startX;
+					if(moveX < 0){
+						moveX = 0;
+					}else if(moveX > wid){
+						moveX = wid;
+					}
+					fn.call(obj,moveX,moveX/wid);
+				}
+			}).bind("touchend",function (event){
+				$(window).unbind("touchmove");
+				$(window).unbind("touchend");
+			});
+		});
+
+		// 解决红米1s and 傲游浏览器4.3.3.2000 build 2896 这坑货浏览器翻转时进度条坐标位置没有重算的问题
+		var fixHandler=function(){
+			var timer;
+			var num=0;
+			var check=function(){
+				var width=widObj.width();
+				if(width!=wid){
+					var bili=width/wid;
+				  	var moveX=obj.position().left*bili;
+				  	wid=width;
+				  	fn.call(obj,moveX,moveX/wid);
+				  	if(isFirefox){
+				  		setTimeout(function(){fixFleg=false;},30);
+				  	}else{
+				  		fixFleg=false;
+				  	}
+				}else{
+				  	num++;
+				  	if(num<8){
+				 		timer=setTimeout(check,30);
+				  	}else{
+				  		fixFleg=false;
+				  	}
+				}
+			};
+			check();
+		};
+		// bind翻转和重置事件
+		// FF——>resize
+		// 红米原生|傲游——>orientationchange
+		$(window).bind("orientationchange" in window ? "orientationchange" : "resize",function(){
+			if(fixFleg==false){					
+				fixFleg=true;
+				fixHandler();
+			}
+		});
+		fn.call(obj,0,0);
+	}
+
+	// 加载
+	var init = function (){
+		dragScroll($(".ctrl-btn-1"), $(".ctrl-strip"), function (x,value){
+			$(this).css({left:x});                                                 // 拖动
+			$(this).siblings(".strip-bj").css({width:x});                          // 进度
+			$(".jcz-1").text(100+parseInt(value*(500-100)));                       // 数值
+		});
+		dragScroll($(".ctrl-btn-2"), $(".ctrl-strip"), function (x,value){
+			$(this).css({left:x});                                                 // 拖动
+			$(this).siblings(".strip-bj").css({width:x});                          // 进度
+			$(".jcz-2").text(100+parseInt(value*(500-100)));                       // 数值
+		});
+		dragScroll($(".ctrl-btn-3"), $(".ctrl-strip"), function (x,value){
+			$(this).css({left:x});                                                 // 拖动
+			$(this).siblings(".strip-bj").css({width:x});                          // 进度
+			$(".jcz-3").text(100+parseInt(value*(500-100)));                       // 数值
+		});
+	}();
+});
+</script>
+	</div>
+	<footer>
+	&copy; <a href="/" target="_blank">懒蛇的实验室</a> All Rights Reserved | Powered by <a href="http://jekyllcn.com/" target="_blank">Jekyll</a> | Themes by <a href="http://blog.webql.info" target="_blank">懒蛇</a>
+</footer>
+<!-- duoshuo start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"snakelab"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- duoshuo end -->
+<script src="/js/prefixfree.min.js" type="text/javascript"></script>
+<script src="/js/zepto.min.js" type="text/javascript"></script>
+<script src="/js/webql.cookie.js" type="text/javascript"></script>
+</body>
+</html>
