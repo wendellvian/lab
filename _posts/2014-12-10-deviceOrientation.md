@@ -17,4 +17,4 @@ alpha | beta | gamma
 
 手机测试：
 
-<img src="" alt="QR-code" />
+<img src="/demo/20141210/1/qrcode.jpg" alt="QR-code" />
