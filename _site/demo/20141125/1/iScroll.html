@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="telephone=no, email=no" />
+	<title>iScroll</title>
+	<style>
+	*{margin:0;padding:0;}
+	html,body{width:100%;height:100%;}
+	.wrapper{position:relative;width:100%;height:100%;background:#333;overflow:hidden;}
+	.pages-layout{position:absolute;left:0;top:0;width:100%;height:100%;}
+	.layout-page{position:relative;width:100%;height:100%;overflow:hidden;}
+	.page1{background:purple;color:#fff;font-size:50px;font-family:Arial;text-align:center;}
+	.page1 p{margin-top:50%;}
+	.page2{background:orange;}
+	.page3{background:darkorange;}
+	.page4{background:darkred;}
+	.page5{background:green;}
+	</style>
+</head>
+<body>
+	<div class="wrapper" id="wrapper">
+		<div class="pages-layout">
+			<div class="layout-page page1"><p>iScroll</p></div>
+			<div class="layout-page page2"></div>
+			<div class="layout-page page3"></div>
+			<div class="layout-page page4"></div>
+			<div class="layout-page page5"></div>
+		</div>
+	</div>
+
+	<script src="/js/iscroll.min.js" type="text/javascript"></script>
+	<script src="/js/zepto.min.js" type="text/javascript"></script>
+	<script>
+	var myScroll;
+
+	var $pageEle = $(".layout-page"),
+		$winHeight = $(window).height();
+		$pageEle.css({height:$winHeight});
+		$pageEle.parent(".pages-layout").css({height:100*$pageEle.length+'%'});
+	function switchPage(obj){
+		$pageEle.removeClass("page-show");
+		$pageEle.eq(obj).addClass("page-show");
+	}
+			
+	function loaded(){
+		myScroll = new iScroll("wrapper",{
+			snap: true,
+			momentum: false,
+			hScrollbar: false,
+			vScrollbar: false,
+			onScrollEnd: function () {
+				var _this = this.currPageY;
+				switchPage(_this);
+			}
+		});
+	}
+	document.addEventListener('DOMContentLoaded', loaded, false);
+
+	</script>
+</body>
+</html>
