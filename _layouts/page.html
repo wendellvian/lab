@@ -24,7 +24,7 @@ headtitle: 懒蛇的实验室(chrome)
 		<a href="/">Go Back</a>
 	</div>
 	<div class="sidebar fl">
-		<div class="labpic"><img src="/demo/{{ page.pic }}" alt="{{ page.title }}"></div>
+		<div class="labpic"><img src="demo/{{ page.pic }}" alt="{{ page.title }}"></div>
 		<div class="labtest">实验环境：{{ page.adaptive }}</div>
 		<div class="labintro">
 			<label for="">交流：</label>
@@ -42,7 +42,7 @@ headtitle: 懒蛇的实验室(chrome)
 			<p>遵循知识共享许可协议 <a style="display:inline-block;vertical-align:middle;" rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" alt="知识共享许可协议" /></a></p>
 		</div>
 		<div class="article-button">
-			<span><a href="/demo/{{ page.demourl }}" target="_blank">开启实验</a></span>
+			<span><a href="demo/{{ page.demourl }}" target="_blank">开启实验</a></span>
 		</div>
 		<div class="labintro">
 			<label for="">技术要点：</label>
@@ -61,7 +61,7 @@ headtitle: 懒蛇的实验室(chrome)
 			<label for="">标签：</label>
 			<p>
 				{% for tag in page.tags %}
-				<a href="/tags/#{{tag}}">{{ tag }}</a>
+				<a href="tags/#{{tag}}">{{ tag }}</a>
 				{% endfor %}
 			</p>
 		</div>
