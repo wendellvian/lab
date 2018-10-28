@@ -17,7 +17,7 @@ headtitle: 懒蛇的实验室(chrome)
 			<ul>
 				{% for post in paginator.posts %}
 				<li>
-					<p class="labimg"><a href="{{ post.url }}"><img src="demo/{{ post.pic }}" alt="{{ post.title }}" /></a></p>
+					<p class="labimg"><a href="/{{ post.url }}"><img src="demo/{{ post.pic }}" alt="{{ post.title }}" /></a></p>
 					<p class="labtit"><a href="{{ post.url }}">{{ post.title }}</a></p>
 					<p class="by">by： <a href="{{ post.blogurl }}" target="_blank">{{ post.author }}</a></p>
 					<p class="tags">
